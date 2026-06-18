@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-dark: #050508;
+  --color-bg-card: rgba(10, 11, 18, 0.75);
+  --color-bg-card-hover: rgba(16, 18, 28, 0.85);
+  --color-border-glow: rgba(16, 185, 129, 0.4);
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Outfit', 'Inter', system-ui, sans-serif;
+}
+
+/* Base resets & utilities */
+body {
+  background-color: #050508;
+  color: #f8fafc;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050508;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.5);
+}
+
+/* Scroll reveal transition classes */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animated Heading Underline (Navbar transition style) */
+.animated-heading {
+  position: relative;
+  display: table;
+  margin: 0 auto 16px;
+  padding-bottom: 8px;
+}
+
+.animated-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #10b981, #fbbf24);
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Active animation trigger when parent section is revealed on scroll */
+.revealed .animated-heading::after,
+.revealed.animated-heading::after,
+.animated-heading:hover::after {
+  width: 100%;
+}
+
+/* Rectangular organic mask blending portrait photo into background, occupying 2/3rds of screen aligned to the right */
+.home-bg-blend {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 66.66vw;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.18;
+  mask-image: 
+    linear-gradient(to right, transparent, black 15%, black 85%, transparent),
+    linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  mask-composite: intersect;
+  -webkit-mask-image: 
+    linear-gradient(to right, transparent, black 15%, black 85%, transparent),
+    linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-composite: source-in;
+}
+
+/* Custom Float Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Modal Animations */
+@keyframes slideInUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
