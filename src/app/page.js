@@ -19,24 +19,29 @@ export default function Home() {
 
   const [activeSection, setActiveSection] = useState('home')
   const [selectedProject, setSelectedProject] = useState(null)
+  const [modalAnimation, setModalAnimation] = useState('up')
 
   const handleNextProject = () => {
     if (!selectedProject) return
     const currentIndex = projectsData.findIndex(p => p.id === selectedProject.id)
-    if (currentIndex !== -1) {
-      const nextIndex = (currentIndex + 1) % projectsData.length
-      setSelectedProject(projectsData[nextIndex])
+    if (currentIndex !== -1 && currentIndex < projectsData.length - 1) {
+      setModalAnimation('left')
+      setSelectedProject(projectsData[currentIndex + 1])
     }
   }
 
   const handlePrevProject = () => {
     if (!selectedProject) return
     const currentIndex = projectsData.findIndex(p => p.id === selectedProject.id)
-    if (currentIndex !== -1) {
-      const prevIndex = (currentIndex - 1 + projectsData.length) % projectsData.length
-      setSelectedProject(projectsData[prevIndex])
+    if (currentIndex > 0) {
+      setModalAnimation('right')
+      setSelectedProject(projectsData[currentIndex - 1])
     }
   }
+
+  const currentIndex = selectedProject ? projectsData.findIndex(p => p.id === selectedProject.id) : -1;
+  const hasNext = currentIndex !== -1 && currentIndex < projectsData.length - 1;
+  const hasPrev = currentIndex !== -1 && currentIndex > 0;
 
   // Initialize scroll-triggered animations
   useScrollReveal()
@@ -74,7 +79,7 @@ export default function Home() {
         <Hero />
         <About />
         <Experience />
-        <Projects onSelectProject={setSelectedProject} />
+        <Projects onSelectProject={(p) => { setModalAnimation('up'); setSelectedProject(p); }} />
         <Skills />
         <Contact />
       </main>
@@ -83,10 +88,9 @@ export default function Home() {
 
       {selectedProject && (
         <ProjectModal
-          project={selectedProject}
+          projects={projectsData}
+          initialProjectId={selectedProject.id}
           onClose={() => setSelectedProject(null)}
-          onNext={handleNextProject}
-          onPrev={handlePrevProject}
         />
       )}
     </>

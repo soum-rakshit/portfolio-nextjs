@@ -114,11 +114,11 @@ export default function Skills() {
   }, [activeIndex, totalItems])
 
   const nextSlide = () => {
-    setActiveIndex((prev) => (prev + 1) % totalItems)
+    if (activeIndex < totalItems - 1) setActiveIndex((prev) => prev + 1)
   }
 
   const prevSlide = () => {
-    setActiveIndex((prev) => (prev - 1 + totalItems) % totalItems)
+    if (activeIndex > 0) setActiveIndex((prev) => prev - 1)
   }
 
   return (
@@ -127,7 +127,7 @@ export default function Skills() {
         <div className="reveal-on-scroll">
           <h2 className="text-[36px] font-heading font-extrabold text-center animated-heading">Technical Skills</h2>
           <p className="text-center text-slate-400 text-sm md:text-base max-w-[600px] mx-auto mb-12">
-            Click arrows to navigate infinitely, or scroll vertically over this section to slide horizontally.
+            Click arrows to navigate, or scroll vertically over this section to slide horizontally.
           </p>
         </div>
 
@@ -136,22 +136,22 @@ export default function Skills() {
           {/* Left Arrow Button */}
           <button 
             onClick={prevSlide}
-            className="absolute left-2 md:left-6 z-20 w-12 h-12 rounded-full bg-bg-card border border-white/10 hover:border-emerald-500/40 text-white flex items-center justify-center cursor-pointer transition-all duration-300 shadow-lg hover:bg-emerald-500/10 hover:scale-105 active:scale-95 text-lg font-bold"
+            className={`absolute left-2 md:left-6 z-20 w-12 h-12 rounded-full bg-bg-card border border-white/10 text-white flex items-center justify-center transition-all duration-300 shadow-lg font-bold ${activeIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'cursor-pointer hover:border-emerald-500/40 hover:bg-emerald-500/10 hover:scale-105 active:scale-95'}`}
             aria-label="Previous Skill Category"
+            disabled={activeIndex === 0}
           >
-            ←
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
           </button>
 
           {/* Right Arrow Button */}
           <button 
             onClick={nextSlide}
-            className="absolute right-2 md:right-6 z-20 w-12 h-12 rounded-full bg-bg-card border border-white/10 hover:border-emerald-500/40 text-white flex items-center justify-center cursor-pointer transition-all duration-300 shadow-lg hover:bg-emerald-500/10 hover:scale-105 active:scale-95 text-lg font-bold"
+            className={`absolute right-2 md:right-6 z-20 w-12 h-12 rounded-full bg-bg-card border border-white/10 text-white flex items-center justify-center transition-all duration-300 shadow-lg font-bold ${activeIndex === totalItems - 1 ? 'opacity-30 cursor-not-allowed' : 'cursor-pointer hover:border-emerald-500/40 hover:bg-emerald-500/10 hover:scale-105 active:scale-95'}`}
             aria-label="Next Skill Category"
+            disabled={activeIndex === totalItems - 1}
           >
-            →
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
           </button>
-
-          {/* Sliding Track Viewport */}
           <div className="w-full overflow-hidden py-4">
             <div 
               className="flex gap-8 transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) w-max relative"

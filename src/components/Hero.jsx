@@ -15,7 +15,7 @@ export default function Hero() {
       <div className="container mx-auto px-6 relative z-10 w-full">
         <div className="max-w-[700px] text-left reveal-on-scroll">
           <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider inline-block mb-6 uppercase">
-            Agentic AI & Full Stack Engineer
+            Full Stack Developer
           </div>
           
           <h1 className="font-heading text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.08] mb-6">
@@ -26,7 +26,7 @@ export default function Hero() {
           </h1>
           
           <p className="text-base md:text-lg text-slate-400 max-w-[580px] mb-10 leading-relaxed">
-            I architect high-performance full-stack web applications and autonomous coding agents. Specializing in React 19, FastAPI, PostgreSQL, and LLM-orchestrated agent pipelines.
+            I'm a Full Stack Developer with a deep interest in building AI applications. I enjoy engineering reliable software systems and creating personal tools that solve real-world problems.
           </p>
 
           <div className="flex flex-wrap gap-4">

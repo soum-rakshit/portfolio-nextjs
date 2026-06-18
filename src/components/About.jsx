@@ -12,13 +12,16 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="text-left text-slate-400 space-y-5 text-base leading-relaxed reveal-on-scroll">
             <p>
-              I am a highly motivated engineer who loves building clean, performant applications and designing intelligent agentic AI loops.
+              I am a Full Stack Developer currently working at Agrenix, where I focus on building reliable distributed systems and AI applications.
             </p>
             <p>
-              Whether it's implementing optimized backend schemas, constructing responsive web views, or writing autonomous IDE execution loops, I enjoy tackling complex challenges and engineering reliable software systems.
+              Outside of work, I have a deep interest in building personal tools. I am developing Lumina, a personal AI planner that gamifies daily tasks based on user input, and DeckGen, a platform that produces high-quality presentation files tailored to user requirements.
             </p>
             <p>
-              I actively collaborate, build, and coordinate initiatives. I served as a core contributor at the Centre for Career Development and E-Cell at NIT Agartala.
+              I am also passionate about algorithmic problem-solving, having solved over 400 DSA problems. During my time at NIT Agartala, I coordinated corporate recruitment drives, assisting with the placement of over 150 students.
+            </p>
+            <p>
+              When I'm not coding, I enjoy traveling and taking photos. You can check out some of my work on my <a href="https://www.instagram.com/rakshit.explores/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 transition-colors border-b border-emerald-400/30 hover:border-emerald-400 pb-0.5">photography blog on Instagram</a>.
             </p>
           </div>
 

@@ -26,16 +26,13 @@ export default function Experience() {
                   Architected and built an enterprise-grade Unified Agent Registry & Audit System for high-frequency telemetry tracking.
                 </li>
                 <li className="relative pl-5 text-slate-400 text-sm md:text-[15px] before:content-['▹'] before:absolute before:left-0 before:text-emerald-500 before:font-bold">
-                  Implemented a Split-Write Strategy: routed structured agent metadata to PostgreSQL and high-volume audit logs to MongoDB using the Bucket Pattern.
+                  Implemented a split-write strategy: agent metadata in Supabase PostgreSQL via Drizzle ORM; high-volume audit logs in MongoDB using the Bucket Pattern for scalable time-series ingestion.
                 </li>
                 <li className="relative pl-5 text-slate-400 text-sm md:text-[15px] before:content-['▹'] before:absolute before:left-0 before:text-emerald-500 before:font-bold">
-                  Built an Auto-Registration Engine that scans repositories to automatically detect agentic behavior.
+                  Built async Bun + Hono REST API for auto-detecting agentic behavior during repo scans; integrated Inngest for event-driven pipelines with exponential-backoff retry.
                 </li>
                 <li className="relative pl-5 text-slate-400 text-sm md:text-[15px] before:content-['▹'] before:absolute before:left-0 before:text-emerald-500 before:font-bold">
-                  Integrated a bulk CSV ingestion pipeline and fuzzy search combining SQL (ILIKE) and NoSQL ($regex) filters.
-                </li>
-                <li className="relative pl-5 text-slate-400 text-sm md:text-[15px] before:content-['▹'] before:absolute before:left-0 before:text-emerald-500 before:font-bold">
-                  Designed a high-contrast React 19 + Vite + Tailwind frontend design system.
+                  Developed a React 19 + TanStack Start + TailwindCSS v4 dashboard with end-to-end type safety and Pydantic-validated APIs.
                 </li>
               </ul>
             </div>
@@ -51,10 +48,7 @@ export default function Experience() {
               <div className="text-base text-cyan-400 font-semibold mb-4">Hindustan Zinc Limited (Electrical Engineer)</div>
               <ul className="list-none p-0 space-y-2.5">
                 <li className="relative pl-5 text-slate-400 text-sm md:text-[15px] before:content-['▹'] before:absolute before:left-0 before:text-emerald-500 before:font-bold">
-                  Boosted solar plant yield to ~115,000 kWh/month by integrating a 320kW inverter and upgrading string connectors.
-                </li>
-                <li className="relative pl-5 text-slate-400 text-sm md:text-[15px] before:content-['▹'] before:absolute before:left-0 before:text-emerald-500 before:font-bold">
-                  Led APFC relay installations at key substations to optimize power factor and achieve maximum electrical efficiency.
+                  Boosted industrial solar plant yield to ~115,000 kWh/month by integrating a 320 kW inverter and upgrading string connectors to 30 A fail-safe hardware.
                 </li>
               </ul>
             </div>
