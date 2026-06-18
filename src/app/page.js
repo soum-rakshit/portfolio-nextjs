@@ -15,13 +15,7 @@ export default function Home() {
 
   const [message, setMessage] = useState("")
 
-  useEffect(() => {
-    // In Next.js, API routes are on the same domain, so we can just use the relative path.
-    fetch(`/api/message`)
-      .then(res => res.json())
-      .then(data => setMessage(data.message))
-      .catch(err => console.log("Error fetching message", err))
-  }, []) // Added empty dependency array so it doesn't fetch on every render
+
 
   const [activeSection, setActiveSection] = useState('home')
   const [selectedProject, setSelectedProject] = useState(null)
